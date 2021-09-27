@@ -81,7 +81,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
                 await f.close()
 
     image1 = Image.open("./background.png")
-    image2 = Image.open("etc/837707.1.jpg")
+    image2 = Image.open("etc/Saber2.jpg")
     image3 = changeImageSize(1280, 720, image1)
     image4 = changeImageSize(1280, 720, image2)
     image5 = image3.convert("RGBA")
@@ -199,7 +199,7 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
+                        "<b>Jadiin Aku Admin 🥵</b>",
                     )
                     return
 
@@ -207,10 +207,10 @@ async def play(_, message: Message):
                     await USER.join_chat(invitelink)
                     await USER.send_message(
                         message.chat.id,
-                        "Assistant joined this group for playing music in VC",
+                        "Assisten join mau ngerusuh di video chat",
                     )
                     await lel.edit(
-                        "<b>Assistant joined this chat</b>",
+                        "<b>Assisten telah datang di video chat</b>",
                     )
 
                 except UserAlreadyParticipant:
@@ -254,7 +254,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🚨 Support", url="t.me/OdaSupport"),
                     InlineKeyboardButton("📡 Updates", url="t.me/UserLazyXBot"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="👍 Subs", url="t.me/yadibuka")],
             ]
         )
 
@@ -289,10 +289,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🚨 Support", url="t.me/OdaSupport"),
+                        InlineKeyboardButton("🚨 Team Bot", url="t.me/OdaSupport"),
                         InlineKeyboardButton("📡 Updates", url="t.me/UserLazyXBot"),
                     ],
-                    [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                    [InlineKeyboardButton(text="👍 Subs", url="t.me/yadibuka")],
                 ]
             )
 
@@ -316,7 +316,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "Coba /play asade"
+                "❌ Judul lagunya mana Blok"
             )
         await lel.edit("🔎 **Sabar Lagi Dicari Blok...**")
         query = message.text.split(None, 1)[1]
@@ -352,16 +352,16 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🚨 Support", url="t.me/OdaSupport"),
+                    InlineKeyboardButton("🚨 Team Bot", url="t.me/OdaSupport"),
                     InlineKeyboardButton("📡 Updates", url="t.me/UserLazyXBot"),
                 ],
-                [InlineKeyboardButton(text="🗑 Close", callback_data="cls")],
+                [InlineKeyboardButton(text="👍 Subs", url="t.me/yadibuka")],
             ]
         )
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ Batas durasi musiknya cuma {DURATION_LIMIT} menit Goblok"
             )
             return
         requested_by = message.from_user.first_name
@@ -372,7 +372,7 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**🎵 Song:** {}\n**🕒 Duration:** {} min\n**👤 Added By:** {}\n\n**#⃣ Queued Position:** {}".format(
+            caption="**🎵 Lagu:** {}\n**🕒 Durasi:** {} min\n**👤 Ditambahkan Oleh:** {}\n\n**#⃣ Antrian Ke:** {}".format(
                 title,
                 duration,
                 message.from_user.mention(),
@@ -385,7 +385,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**🎵 Song:** {}\n**🕒 Duration:** {} min\n**👤 Added By:** {}\n\n**▶️ Now Playing at `{}`...**".format(
+            caption="**🎵 Lagu:** {}\n**🕒 Durasi:** {} min\n**👤 Ditambahkan Oleh:** {}\n\n**▶️ Sedang Berputar di `{}`...**".format(
                 title, duration, message.from_user.mention(), message.chat.title
             ),
         )
