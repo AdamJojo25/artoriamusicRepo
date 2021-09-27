@@ -238,7 +238,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ Batas durasi musiknya cuma {DURATION_LIMIT} menit Goblok"
             )
 
         file_name = get_file_name(audio)
@@ -307,7 +307,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ Batas durasi musiknya cuma {DURATION_LIMIT} menit Goblok"
             )
             return
         requested_by = message.from_user.first_name
@@ -316,12 +316,12 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "🧐 **Song not found! Try searching with the correct title\nExample » /play In The End\n\nChannel : @UserLazyXBot**"
+                "Coba /play asade"
             )
-        await lel.edit("🔎 **Finding the song...**")
+        await lel.edit("🔎 **Sabar Lagi Dicari Blok...**")
         query = message.text.split(None, 1)[1]
         # print(query)
-        await lel.edit("🎵 **Processing sounds...**")
+        await lel.edit("🎵 **Sabar Lagi Diproses Blok...**")
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -344,7 +344,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "❌ Song not found.\n\nTry another song or maybe spell it properly."
+                "❌ Lagu lu gaenak jadi gabisa diplay"
             )
             print(str(e))
             return
