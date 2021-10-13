@@ -305,9 +305,7 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         if len(message.command) < 2:
-            return await lel.edit(
-                "❌ Judul lagunya mana Blok"
-            )
+            return await lel.edit("❌ Judul lagunya mana Blok")
         await lel.edit("🔎 **Sabar Lagi Dicari Blok...**")
         query = message.text.split(None, 1)[1]
         # print(query)
@@ -333,9 +331,7 @@ async def play(_, message: Message):
                 secmul *= 60
 
         except Exception as e:
-            await lel.edit(
-                "❌ Lagu lu gaenak jadi gabisa diplay"
-            )
+            await lel.edit("❌ Lagu lu gaenak jadi gabisa diplay")
             print(str(e))
             return
 
